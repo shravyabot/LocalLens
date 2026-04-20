@@ -1,0 +1,12 @@
+services:
+  locallens:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      LOCALLENS_OLLAMA_MODEL: llama3.1:8b-instruct-q4_K_M
+    volumes:
+      - ./data:/app/data
+      - ./artifacts:/app/artifacts
+
