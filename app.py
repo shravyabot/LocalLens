@@ -587,7 +587,7 @@ if run and query.strip():
                     <div class="place-card">
                         <strong>{card['name']}</strong><br/>
                         <span>{card['location']} | {card['category']} | {card['source_provider']}</span><br/>
-                        <span>Rating: {card['rating'] if card['rating'] is not None else 'n/a'} | Reviews: {card['review_count'] or 'n/a'}</span><br/>
+                        {f'<span>Rating: {card["rating"]} | Reviews: {card["review_count"]}</span><br/>' if card['rating'] is not None or card['review_count'] else ''}
                         <span>{card['address'] or 'Address unavailable'}</span><br/><br/>
                         <span>{card['why']}</span><br/><br/>
                         <a href="{card['source_url']}" target="_blank">Open place source</a>
